@@ -1,0 +1,10 @@
+/vendor
+.env
+/node_modules
+.phpunit.result.cache
+/docker/mysql
+npm-debug.log
+yarn-error.log
+/.fleet
+/.idea
+/.vscode
