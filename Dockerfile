@@ -1,6 +1,5 @@
 FROM php:8.1.13-fpm-bullseye
 
-#RUN apt-get update && apt-get install -y git curl libpng-dev libonig-dev libxml2-dev cron zip unzip
 RUN apt-get update && apt-get install -y git curl cron libzip-dev libonig-dev unzip rsync
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
