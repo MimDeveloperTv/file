@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use App\Enums\FileType;
+use App\Observers\FileObserver;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use \Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\QueryBuilder\AllowedFilter;
 
 class File extends Model
@@ -19,6 +21,11 @@ class File extends Model
         'folder_id',
         'size'
     ];
+
+    protected $observables = [
+      FileObserver::class
+    ];
+
 
     public function folder(): BelongsTo
     {

@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Enums\FileType;
 
 return new class extends Migration
 {
@@ -12,8 +13,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('folder_id');
             $table->string('name', 20);
+            $table->enum('type', FileType::values());
             $table->integer('size');
-            $table->string('path', 20);
+            $table->string('path');
             $table->timestamps();
             $table->softDeletes();
 
