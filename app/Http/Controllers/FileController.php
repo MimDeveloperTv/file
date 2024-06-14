@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\File\CreateFileRequest;
+use App\Http\Requests\File\MoveAllFileRequest;
 use App\Http\Requests\File\MoveFileRequest;
 use App\Http\Resources\File\CreateFileResource;
 use App\Http\Resources\File\DetailFileResource;
@@ -30,6 +31,15 @@ class FileController extends Controller
         $file->update($request->getData());
 
         return DetailFileResource::make($file);
+    }
+
+    public function updateAll(MoveAllFileRequest $request)
+    {
+        File::query()
+            ->where('folder_id', $request->fromFolder())
+            ->update(['folder_id' => $request->toFolder()]);
+
+        return response()->json('Moved All File Success', 204);
     }
 
     public function destroy($id)
