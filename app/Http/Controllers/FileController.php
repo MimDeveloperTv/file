@@ -11,24 +11,6 @@ use Illuminate\Http\Request;
 
 class FileController extends Controller
 {
-//    public function index(Request $request, $folderId)
-//    {
-//        $query = File::where('folder_id', $folderId);
-//
-//        if ($request->has('date')) {
-//            $query->orderBy('created_at', $request->date);
-//        }
-//
-//        if ($request->has('keyword')) {
-//            $query->where('name', 'like', '%' . $request->keyword . '%');
-//        }
-//
-//        if ($request->has('deleted')) {
-//            $query->onlyTrashed();
-//        }
-//
-//        return response()->json($query->get());
-//    }
 
     public function store(CreateFileRequest $request): CreateFileResource
     {

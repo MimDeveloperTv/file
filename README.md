@@ -24,5 +24,5 @@ chmod 777 -R ./storage
 
 - get project up and running:
 ```shell
-docker compose -p filemanager up -d
+docker compose up -d
 ```
