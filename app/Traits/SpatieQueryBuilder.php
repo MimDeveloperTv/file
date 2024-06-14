@@ -14,14 +14,12 @@ trait SpatieQueryBuilder
     {
         $this->queryBuilder = QueryBuilder::for(static::class)
             ->allowedFilters($this->allowedFilters())
+            ->allowedIncludes($this->allowedIncludes())
             ->defaultSort($this->defaultSort);
-
-        if (property_exists($this, 'with')) {
-            $this->queryBuilder->with($this->with);
-        }
 
         return $this->queryBuilder;
     }
 
     abstract protected function allowedFilters(): array;
+    abstract protected function allowedIncludes(): array;
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enums\FileType;
 use App\Observers\FileObserver;
+use App\Traits\SpatieQueryBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,7 +13,9 @@ use Spatie\QueryBuilder\AllowedFilter;
 
 class File extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory,
+        SoftDeletes,
+        SpatieQueryBuilder;
 
     protected $fillable = [
         'name',
@@ -41,5 +44,10 @@ class File extends Model
             AllowedFilter::exact('folder_id'),
             AllowedFilter::exact('size'),
         ];
+    }
+
+    protected function allowedIncludes(): array
+    {
+        return [];
     }
 }

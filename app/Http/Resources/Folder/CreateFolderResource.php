@@ -10,6 +10,7 @@ class CreateFolderResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'name' => $this->name,
             'parent_folder_id' => $this->parent_id,
         ];
     }

@@ -28,9 +28,12 @@ class FolderController extends Controller
 
     public function show($id): DetailFolderResource
     {
-        return DetailFolderResource::make(
-           Folder::with(['files', 'children'])->findOrFail($id)
-        );
+        $repository = (new Folder())
+            ->makeQueryBuilder()
+            ->with(['children'])
+            ->findOrFail($id);
+
+        return DetailFolderResource::make($repository);
     }
 
     public function update(Request $request, $id)
