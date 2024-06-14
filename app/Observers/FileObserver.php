@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\File;
 use App\Enums\FileType;
+use App\Models\File;
 
 class FileObserver
 {

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Enums\FileType;
 use App\Observers\FileObserver;
 use App\Traits\SpatieQueryBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -22,13 +21,12 @@ class File extends Model
         'type',
         'path',
         'folder_id',
-        'size'
+        'size',
     ];
 
     protected $observables = [
-      FileObserver::class
+        FileObserver::class,
     ];
-
 
     public function folder(): BelongsTo
     {

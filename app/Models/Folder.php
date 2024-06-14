@@ -7,10 +7,10 @@ use App\Models\Query\ShowTrashedFile;
 use App\Traits\SpatieQueryBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\AllowedInclude;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Folder extends Model
 {
@@ -26,14 +26,14 @@ class Folder extends Model
         return [
             AllowedFilter::exact('name'),
             AllowedFilter::exact('parent_id'),
-            AllowedFilter::custom('file_name',new FilterNameFile),
+            AllowedFilter::custom('file_name', new FilterNameFile),
         ];
     }
 
     protected function allowedIncludes(): array
     {
         return [
-            AllowedInclude::custom('trashed',new ShowTrashedFile),
+            AllowedInclude::custom('trashed', new ShowTrashedFile),
         ];
     }
 
@@ -51,5 +51,4 @@ class Folder extends Model
     {
         return $this->hasMany(Folder::class, 'parent_id');
     }
-
 }

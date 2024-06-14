@@ -9,5 +9,5 @@ abstract class Action
         return app(static::class);
     }
 
-    abstract function handle();
+    abstract public function handle();
 }

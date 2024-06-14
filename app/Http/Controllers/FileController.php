@@ -7,18 +7,15 @@ use App\Http\Requests\File\MoveFileRequest;
 use App\Http\Resources\File\CreateFileResource;
 use App\Http\Resources\File\DetailFileResource;
 use App\Models\File;
-use Illuminate\Http\Request;
 
 class FileController extends Controller
 {
-
     public function store(CreateFileRequest $request): CreateFileResource
     {
         return CreateFileResource::make(
             File::query()->create($request->getData())
         );
     }
-
 
     public function show($id): DetailFileResource
     {
@@ -27,11 +24,11 @@ class FileController extends Controller
         );
     }
 
-
     public function update(MoveFileRequest $request, $id): DetailFileResource
     {
         $file = File::query()->findOrFail($id);
         $file->update($request->getData());
+
         return DetailFileResource::make($file);
     }
 
@@ -39,7 +36,7 @@ class FileController extends Controller
     {
         $file = File::findOrFail($id);
         $file->delete();
+
         return response()->json('Removed Success', 204);
     }
-
 }

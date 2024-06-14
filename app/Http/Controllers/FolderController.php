@@ -40,6 +40,7 @@ class FolderController extends Controller
     {
         $folder = Folder::findOrFail($id);
         $folder->update($request->all());
+
         return response()->json($folder);
     }
 
@@ -47,6 +48,7 @@ class FolderController extends Controller
     {
         $folder = Folder::findOrFail($id);
         $folder->delete();
+
         return response()->json(null, 204);
     }
 }

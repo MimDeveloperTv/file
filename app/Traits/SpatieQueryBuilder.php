@@ -21,5 +21,6 @@ trait SpatieQueryBuilder
     }
 
     abstract protected function allowedFilters(): array;
+
     abstract protected function allowedIncludes(): array;
 }

@@ -10,7 +10,7 @@ class CreateFolderRequest extends FormRequest
     {
         return [
             'name' => 'string|required|max:10',
-            'parent_id' => 'int|nullable|exists:folders,id'
+            'parent_id' => 'int|nullable|exists:folders,id',
         ];
     }
 

@@ -1,9 +1,9 @@
 <?php
 
+use App\Enums\FileType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Enums\FileType;
 
 return new class extends Migration
 {
