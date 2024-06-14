@@ -17,10 +17,6 @@ trait SpatieQueryBuilder
             ->allowedIncludes($this->allowedIncludes())
             ->defaultSort($this->defaultSort);
 
-        if (property_exists($this, 'with')) {
-            $this->queryBuilder->with($this->with);
-        }
-
         return $this->queryBuilder;
     }
 

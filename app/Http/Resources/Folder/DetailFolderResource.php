@@ -10,6 +10,7 @@ class DetailFolderResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'name' => $this->name,
             'sub_folders' => $this->children,
             'files' => $this->files,
         ];
