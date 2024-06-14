@@ -33,3 +33,11 @@ docker compose up -d
 php artisan migrate
 php artisan optimize:clear
 ```
+
+- after done above steps you can see API Collection ( Insomnia Support):
+```shell
+Go To Insomnia-Collection IN Root Folder
+```
+
+![shot240614_1](https://github.com/MimDeveloperTv/file/assets/84548594/07f64cb7-3003-4b60-abc3-0143e4559e26)
+
