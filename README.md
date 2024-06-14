@@ -26,3 +26,10 @@ chmod 777 -R ./storage
 ```shell
 docker compose up -d
 ```
+<br>
+
+- connect into cointainer terminal and run commands:
+```shell
+php artisan migrate
+php artisan optimize:clear
+```
