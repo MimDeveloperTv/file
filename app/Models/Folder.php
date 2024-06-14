@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Query\FilterNameFile;
+use App\Models\Query\FilterUploadDateFile;
 use App\Models\Query\ShowTrashedFile;
 use App\Traits\SpatieQueryBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -27,6 +28,7 @@ class Folder extends Model
             AllowedFilter::exact('name'),
             AllowedFilter::exact('parent_id'),
             AllowedFilter::custom('file_name', new FilterNameFile),
+            AllowedFilter::custom('created_at', new FilterUploadDateFile),
         ];
     }
 
