@@ -3,18 +3,14 @@
 namespace App\Models;
 
 use App\Observers\FileObserver;
-use App\Traits\SpatieQueryBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\QueryBuilder\AllowedFilter;
 
 class File extends Model
 {
-    use HasFactory,
-        SoftDeletes,
-        SpatieQueryBuilder;
+    use HasFactory,SoftDeletes;
 
     protected $fillable = [
         'name',
@@ -31,21 +27,5 @@ class File extends Model
     public function folder(): BelongsTo
     {
         return $this->belongsTo(Folder::class);
-    }
-
-    protected function allowedFilters(): array
-    {
-        return [
-            AllowedFilter::exact('name'),
-            AllowedFilter::exact('type'),
-            AllowedFilter::exact('path'),
-            AllowedFilter::exact('folder_id'),
-            AllowedFilter::exact('size'),
-        ];
-    }
-
-    protected function allowedIncludes(): array
-    {
-        return [];
     }
 }
